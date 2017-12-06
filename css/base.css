@@ -1,3 +1,21 @@
 body {
-  background: yellow;
+  background: lightblue;
+  font-size: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+label {
+  font-size: 20px;
+}
+
+#main {
+  margin: 0 5% 0 5%;
+}
+
+#videos {
+  margin: auto;
+  text-align: center;
 }

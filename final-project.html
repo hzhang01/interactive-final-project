@@ -1,26 +1,69 @@
 <html>
 <head>
-  <title>Final Project</title>
+  <title>Final Project Proposal</title>
   <link rel="stylesheet" href="css/base.css" type="text/css">
 </head>
 <body>
-  <h1>Gragon Ball Power Sensor</h1>
+  <div id='main'>
+  <h1>Final Project Proposal: Gragon Ball Power Sensor</h1>
   <p>
-    Greetings! Our final project for interactive web class is based on the
-    ki/chi mechanism in the popular anime Dragon Ball. You can learn it <a href="http://dragonball.wikia.com/wiki/Ki">here</a><br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/TB4dQwyv4Kg?start=14" frameborder="0" allowfullscreen></iframe>
-    <h2> Game Mechanism </h2>
-    By contracting muscle and reading in the contraction with Myo muscle sensor
-    the VR world will generate yellow orbs/particles based on the level of contraction.<br>
-    We will add more particle or environmental elements into the world as we progress.<br>
-    <img src="images/myo.jpg" height="400" width="600" />
-    <br>
-    <h2> Current Demo </h2>
-    <a href="./index.html"> Link to the Demo </a>
-    <h2>Challenges</h2>
-    - Setting up the myo sensor requires many softwares and configurations. In the middle of the process
-    I found out that a bluetooth signal receiver is missing from the set and need to talk to professor.
-    <h2>Thank you for reading!</h2>
+  Final project is based on Dragon Ball cartoon and the goal is to create a game where a user can play as the character in dragon ball by muscle sensor/ ki chi mechanism to create different actions. We were first inspired by the Dragon Ball VR game which can be seen through the video:
   </p>
+  <table id="videos">
+    <tr>
+      <td>
+        <label>Inspiration</label><br>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/TB4dQwyv4Kg?start=14" frameborder="0" allowfullscreen></iframe>
+      </td>
+      <td>
+        <label>Demo</label><br>
+        <video width="560" height="315" controls>
+          <source src="videos/demo1.mp4" type="video/mp4">
+        </video>
+      </td>
+    </tr>
+  </table>
+  <h2><a href="./index.html"> Link to the Demo </a></h2>
+
+  <div id="progress">
+    <h2> Progress/Game Mechanism </h2>
+    <p>
+    Right now, we are only on our first step. My teammate Han and I are working together on the project.
+    I am in charge of creating background, characters and diffeernt actions and Han is trying to figure out the use of muscle sensor and translate it into codes to our program.
+    Here are some scratches we have done:
+    </p>
+    <img src="images/myo.jpg" height="400" width="600" />
+    <img src="images/demo1.jpg" height="400" width="600" />
+    <img src="images/demo2.jpg" height="400" width="600" />
+    <p>
+      There are differnet kinds of moves that a muscle sensor can test (about 4-5).
+      Ideally we want to generate different actions of character with those moves.
+      For example, if the player holds a fist, the chracter, Goku, turns to super sayan mode( yellow hair as shown on the picture).
+      We also want it to have some effects such as bubbles flowing around the Goku when he is turning into super sayan.
+      Another example will be when the player waves to the left, Goku can punch or kick or any other different actions.
+    </p>
+    <p>
+      Currently the demo reads in fist gestures and counts how many seconds does the user holds the same gesture. The bubble particles
+      start moving using Perlin noise as long as the user staying in fist gesture. On release particles will disappear. On the 5 second
+      mark the Goku character will turn into super sayan 1 mode. On the 10 second mark the character will turn into super sayan 2 mode.
+    </p>
+
+
+  </div>
+
+  <div id="concerns">
+  <h2>Some challenges/concerns:</h2>
+  <ul id="challenges">
+    <li>
+      There are not many 3D resources online for Goku. Since p5 does not support animation, it is a little bit hard to come up with several actions.
+    </li>
+    <li>
+      Using myo sensor is a brand new idea for us. There are some techincal issues and limited sources.
+    </li>
+    <li>
+      Even though the creating process is faily hard, I am afraid the idea of the game is not complex enough and the player experience is lower than expectation.
+    </li>
+  </div>
+</div>
 </body>
 </html>

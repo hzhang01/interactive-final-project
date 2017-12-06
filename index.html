@@ -1,26 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="en-us">
 	<head>
 		<meta charset="UTF-8">
 
+		<!-- A-Frame VR Library -->
+		<script src="libraries/aframe.min.js"></script>
+
+		<!-- ARToolKit for A-Frame VR Library -->
+		<script src='libraries/aframe-ar.js'></script>
+
 		<!-- P5 libraries -->
 		<script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+		<script language="javascript" type="text/javascript" src="libraries/p5.dom.min.js"></script>
 
-		<!-- A-Frame libraries -->
-		<script language="javascript" type="text/javascript" src="libraries/aframe.min.js"></script>
-
-		<!-- AFrameP5 library -->
-		<script language="javascript" type="text/javascript" src="libraries/aframep5.js"></script>
-
-		<!-- Myo detector library -->
-		<script language="javascript" type="text/javascript" src="libraries/myo.js"></script>
+		<!-- Craig's AFrameP5 AR library -->
+		<script language="javascript" type="text/javascript" src="libraries/aframep5_ar.js"></script>
 
 		<!-- P5 Sketch -->
 		<script language="javascript" type="text/javascript" src="sketch.js"></script>
-
-		<!-- P5 Sound -->
-		<script language="javascript" type="text/javascript" src="../../p5/addons/p5.sound.js"></script>
-
 		<!-- custom styles -->
 		<style>
 			body {
@@ -31,32 +29,24 @@
 	</head>
 	<body>
 
-		<!-- container to hold our VR scene - make sure to give this element an ID of 'VRScene' -->
-			<a-scene id="VRScene">
+		<!-- modal box to tell the user to rotate their device into landscape mode - the AR toolkit only reliably renders in landscape mode -->
+	<div id="portrait_warning">
 
+	</div>
 
+	<!-- Define A-Frame VR Scene and set it up so that it will be manipulated through AR.js -->
+	<a-scene id="ARScene" embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono;'>
 
-					<a-assets id="VRAssets">
-						<!-- <img id="stone" src="images/stonebrick_mossy.png" />
-						<a-asset id="charmander" src="images/charmander.dae"></a-asset> -->
-						<a-asset id="goku1_obj" src="Goku.obj"></a-asset>
-						<a-asset id="goku1_mtl" src="Goku.mtl"></a-asset>
+		<!-- set up graphics we want to use as assets, same as in A-Frame VR-->
+		<a-assets>
+		</a-assets>
 
-						<a-asset id="goku2_obj" src="Goku2/Goku_SS/Goku.obj"></a-asset>
-						<a-asset id="goku2_mtl" src="Goku2/Goku_SS/Goku.mtl"></a-asset>
+		<!-- set up all of the AR markers we will be working with along with links to their 'pattern' files -->
+		<!-- note that we aren't putting any geometry inside of marker here - we will do that in the p5 sketch -->
+		<a-marker id="hiro" preset="custom" url="markers/patt.hiro"></a-marker>
 
-						<a-asset id="goku3_obj" src="Goku3/Goku_SS3/Goku.obj"></a-asset>
-						<a-asset id="goku3_mtl" src="Goku3/Goku_SS3/Goku.mtl"></a-asset>
-
-
-
-
-					</a-assets>
-
-
-					<a-sky src="background.jpg" rotation="0 -130 0"></a-sky>
-
-		</a-scene>
+		<a-entity camera></a-entity>
+	</a-scene>
 
 	</body>
 </html>
