@@ -20,7 +20,7 @@ var video1;
 // system variables
 var mode = "production";
 var state;
-var level = 5;
+var level = 1;
 var score = 5000;
 var finalScore = 0;
 var dots = [];
@@ -57,9 +57,6 @@ function setup() {
   world = new World('ARScene');
   // grab a reference to our two markers that we set up on the HTML side (connect to it using its 'id')
   markerHiro = world.getMarker('hiro');
-  // // place the player in the middle of the screen
-  // playerX = width / 2;
-  // playerY = height / 2;
 
   // Game setup
   // Level dots setup
@@ -102,10 +99,7 @@ function setup() {
   dots_level5_snitch.push(new Dot(300, 300, pic_snitch, 5));
   dots_level5_snitch.push(new Dot(400, 450, pic_snitch, 6));
 
-
-
   state = "start";
-
   sound2.play();
 }
 
@@ -120,6 +114,7 @@ function draw() {
   }
   // Game states
   if (state === "start") {
+
     background(0, 0, 0, 50);
     image(background1, width/2, height/2, 800, 600);
     // Check marker
@@ -169,6 +164,7 @@ function draw() {
       playing = false;
       score = 5000;
       finalScore = 0;
+      sound2.play();
     }
     // Buttons
     fill(240,128,128);
@@ -243,14 +239,12 @@ function draw() {
       finalScore += score;
       var video1 = createVideo("pic/video" + level + ".mp4");
       var video1DOM = document.querySelector("video[crossorigin='anonymous']");
-      console.log(video1DOM);
       video1DOM.height = 858;
       video1DOM.width = 1520;
       video1.autoplay();
       scrollTo(0,1000);
       video1.onended(function () {
         document.body.removeChild(video1DOM);
-        // video1.hide();
         scrollTo(0, 0);
         level += 1;
         score = 5000;
@@ -268,6 +262,7 @@ function draw() {
 
 // Classes
 // Class: Dot, for representing each dot on the screen
+// Methods: getHit, show
 function Dot (xPos, yPos, artwork, number, altNumber) {
   // Initial properties
   this.x = xPos;
